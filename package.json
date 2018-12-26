@@ -1,7 +1,7 @@
 {
-  "name": "VetClinic",
+  "name": "NasaMern",
   "version": "1.0.0",
-  "description": "Vet Clicninc",
+  "description": "NASA News (MERN)",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

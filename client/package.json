@@ -1,7 +1,7 @@
 {
-  "name": "VetClinic",
+  "name": "NasaMern",
   "version": "0.1.0",
-  "description": "Vet Clinic",
+  "description": "NASA News (Mern)",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
