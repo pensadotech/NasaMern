@@ -1,4 +1,7 @@
 // Mongo database collections
+// Mongo database collections
 module.exports = {
-  User: require("./User")
-}
+  Note: require("./Note"),
+  Article: require("./Article")
+};
+

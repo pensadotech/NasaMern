@@ -1,0 +1,34 @@
+import axios from "axios";
+
+// This utility make a bridge from React client and express routes
+// The front end will have access to these functions that will invoke an express route
+// recognized by the main server routes
+
+export default {
+  // Gets all Articles
+  getArticles: function () {
+    console.log("function getArticles")
+    return axios.get('/api/articles')
+  },
+  // Gets the article with the given id
+  getArticle: function (id) {
+    return axios.get('/api/articles/' + id)
+  },
+  // create or update an article
+  createUpdateArticle: function () {
+    return axios.post('/article')
+  },
+  // Deletes the articles with the given id
+  deleteArticle: function (id) {
+    return axios.delete('/api/articles/' + id)
+  },
+  // delete all saved articles
+  deleteAllArticles: function () {
+    return axios.delete('/api/articles/deleteall')
+  },
+  // get articles from NASA website
+  scrapArtilces: function () {
+    return axios.get('/api/scrapArtilces')
+  }
+
+}
