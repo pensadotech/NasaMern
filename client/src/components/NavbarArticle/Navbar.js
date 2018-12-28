@@ -7,6 +7,9 @@ class Navbar extends Component {
     return (
       <>
         <nav className="navbar navbar-expand-md bg-dark navbar-dark justify-content-end">
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+             <span className="navbar-toggler-icon"></span>
+          </button>
           <div className="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul className="navbar-nav ml-auto">
                <li className="nav-item ml-auto">
