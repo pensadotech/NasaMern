@@ -14,8 +14,8 @@ export default {
     return axios.get('/api/articles/' + id)
   },
   // create or update an article
-  createUpdateArticle: function () {
-    return axios.post('/article')
+  createUpdateArticle: function (article) {
+    return axios.post('/api/articles',article)
   },
   // Deletes the articles with the given id
   deleteArticle: function (id) {
@@ -23,7 +23,8 @@ export default {
   },
   // delete all saved articles
   deleteAllArticles: function () {
-    return axios.delete('/api/articles/deleteall')
+    console.log('deleteAllArticles')
+    return axios.delete('/api/deleteallarticles')
   },
   // get articles from NASA website
   scrapArtilces: function () {

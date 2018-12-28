@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 // components
 import Header from './components/Header'
-import NavbarA from './components/NavbarA'
-import NavbarB from './components/NavbarB'
+import NavbarArticle from './components/NavbarArticle'
+import NavbarNewArticle from './components/NavbarNewArticle'
 import Articles from './pages/Articles'
 import NewArticles from './pages/NewArticles'
 
@@ -33,8 +33,20 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  handleSearchNewArticles = event => {
-    
+ findArticleById = (artPubId, articlesArr) => {
+    let tgtArticle = null
+    for (let i = 0; i < articlesArr.length; i++) {
+      let article = articlesArr[i]
+      if (article.pubId === artPubId) {
+        // found
+        tgtArticle = article
+        break
+      }
+    }
+    return tgtArticle
+  }
+
+  handleSearchNewArticles = event => {  
     API.scrapArtilces()
       .then(res => {
         // Store new articles from ibternet in array
@@ -45,27 +57,48 @@ class App extends Component {
   }
 
   handleClearScreen = event =>  {
-     
-    console.log("handleClearScreen")
-
      // Clear searched artilces
      let tgtarticles = []
      this.setState({ newarticles: tgtarticles })
   }
 
   handleDeleteAllArticles = event => {
+    // Delete all articles
+    API.deleteAllArticles()
+      .then(res => {
+        this.loadArticles()
+      })
+      .catch(err => console.log(err))
+  }
 
-    console.log("handleDeleteAllArticles")
+  handleDeleteArticle = (artPubId) => {
+    // Retreive article from new-Articles array
+    let articlesArr = this.state.articles
+    let article = this.findArticleById(artPubId,articlesArr)   
+    // Delete article
+    API.deleteArticle(article._id)
+    .then(res => {
+      this.loadArticles()
+    })
+    .catch(err => console.log(err))
+  }
 
-    // API.deleteAllArticles()
-    //   .then(res => {
-    //     this.setState({ articles: [] })
-    //   })
-    //   .catch(err => console.log(err))
+  handleSaveArticle = (artPubId) => {
+    // Retreive article from new-Articles array
+    let articlesArr = this.state.newarticles
+    let article = this.findArticleById(artPubId,articlesArr)
+    // Store article in DB
+    API.createUpdateArticle(article)
+       .then(res => {
+        let pos = articlesArr.indexOf(article)
+        articlesArr.splice(pos,1)
+        this.setState({ newarticles: articlesArr })
+        this.loadArticles()
+      })
+      .catch(err => console.log(err))
   }
 
   handlePageChange = page => {
-    console.log('page',page)
     this.setState({ currentPage: page });
   };
 
@@ -75,19 +108,26 @@ class App extends Component {
       // Scrape Artticles: Navbar and articles in memory
       return (
         <>
-        <NavbarB handlePageChange={this.handlePageChange}
-                 handleSearchNewArticles={this.handleSearchNewArticles}
-                 handleClearScreen={this.handleClearScreen} />
-         <NewArticles articles={this.state.newarticles}/>
+          <NavbarNewArticle 
+                handlePageChange={this.handlePageChange}
+                handleSearchNewArticles={this.handleSearchNewArticles}
+                handleClearScreen={this.handleClearScreen} />
+          <NewArticles 
+                articles={this.state.newarticles}
+                handleSaveArticle={this.handleSaveArticle}/>
+  
         </>
       )
     } else {
       // Home : navbar and stored articles in DB
       return (
         <>
-         <NavbarA handlePageChange={this.handlePageChange}
-                  handleDeleteAllArticles={this.handleDeleteAllArticles} />
-          <Articles articles={this.state.articles} />
+          <NavbarArticle 
+                 handlePageChange={this.handlePageChange}   
+                 handleDeleteAllArticles={this.handleDeleteAllArticles} />         
+          <Articles 
+                 articles={this.state.articles} 
+                 handleDeleteArticle={this.handleDeleteArticle}/>       
         </>
       )
     }

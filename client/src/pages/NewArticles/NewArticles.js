@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import Card from '../../components/CardArticle'
+import Card from '../../components/CardNewArticle'
 
-class Articles extends Component {
+class NewArticles extends Component {
   
   render() {
     return(
@@ -15,9 +15,9 @@ class Articles extends Component {
                      title={article.title}
                      description={article.description}
                      image={article.image}
-                     url={article.url}
-                     pubDate={article.pubDate} 
-                     handleDeleteArticle={this.props.handleDeleteArticle}/>
+                    url={article.url}
+                    pubDate={article.pubDate} 
+                    handleSaveArticle={this.props.handleSaveArticle}/>
              ))}
                         
            </div>
@@ -31,4 +31,4 @@ class Articles extends Component {
 
 }
 
-export default Articles
+export default NewArticles

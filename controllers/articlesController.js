@@ -29,6 +29,7 @@ module.exports = {
   createUpdate: function(req,res) {
     // body has an article
     let article = req.body
+    // Create or Update
     db.Article.findOne({ pubId: { $eq: article.pubId } })
       .then((r) => {
         if (r === null) {
@@ -57,11 +58,6 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  removeOne : function( req,res) {
-    db.Article.deleteOne({ pubId: { $eq: req.params.id }})
-     .then(() => res.sendStatus(200))
-     .catch(err => res.status(422).json(err))
   },
   removeAll : function(req, res) {
     // Delete all documents

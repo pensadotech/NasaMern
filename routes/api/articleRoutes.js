@@ -10,10 +10,6 @@ router.route("/")
 router.route("/:id")
   .get(articlesController.findById)
   .put(articlesController.update)
-  .delete(articlesController.removeOne)
-
-  // Matches with "/api/articles/deleteall"
-router.route("/deleteall")
-   .delete(articlesController.removeAll)
+  .delete(articlesController.remove)
 
 module.exports = router

@@ -1,1 +1,1 @@
-export {default} from './NewArtciles'
+export {default} from './NewArticles'
