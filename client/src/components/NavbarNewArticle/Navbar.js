@@ -18,7 +18,7 @@ class Navbar extends Component {
                </li>              
                <li className="nav-item ml-auto">
                  <a className="btn btn-secondary" 
-                    onClick={() => this.props.handleSearchNewArticles()}>Scrap Articles</a>
+                    onClick={() => this.props.handleSearchNewArticles()}>Scrape Articles</a>
                </li>
                <li className="nav-item ml-auto">
                   <a className="btn btn-secondary" 
