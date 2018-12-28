@@ -1,6 +1,24 @@
 # Nasa news (MERN)
 
-NASA latest news MERN applicaiton
+NASA news application
+
+_by Armando Pensado_ 
+
+
+## Description
+
+This is an exercise that embodies a MERN an application. The application uses **Mongoose**, **Express**, **React**, and **Node JS**. But also uses **mongoose (ODM)**, **axios**, and **cheerio** libraries.
+
+The application search for information at NASA breaking news RSS (https://www.nasa.gov/rss/dyn/breaking_news.rss) and presents the articles to the user, giving the capability to store in the database articles that are interesting.
+
+The application may seem similar to a previous one I created ( News Mongo Scraper: https://github.com/pensadotech/NewsMongoScraper ), but this application brings all this functionality into a true MERN application.
+
+The applicaiton is depicted as follows:
+
+![Start](./docs/1.AppView.png)
+
+A running version of the applicaiton can be found at:
+
 
 
 ## Dependedencies
