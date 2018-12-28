@@ -5,7 +5,7 @@ const cheerio = require('cheerio')
 
 module.exports = {
    getNasaNews : function(req,res) {
-     this.getNews()
+     getNews()
       .then(news => res.json(news))
       .catch(err => res.status(422).json(err))
    }

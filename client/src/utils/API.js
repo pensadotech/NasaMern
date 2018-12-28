@@ -1,13 +1,12 @@
 import axios from "axios";
 
-// This utility make a bridge from React client and express routes
+// This utility make a bridge from React client and express routes for actions with DB or AJAX
 // The front end will have access to these functions that will invoke an express route
 // recognized by the main server routes
 
 export default {
   // Gets all Articles
   getArticles: function () {
-    console.log("function getArticles")
     return axios.get('/api/articles')
   },
   // Gets the article with the given id

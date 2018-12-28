@@ -1,16 +1,14 @@
 import React, { Component } from "react"
-import API from "../../utils/API"
 
 class Articles extends Component {
   
   render() {
-
     return(
       <>
         <h1>Articles in DB</h1> 
-        {this.props.savedArticles.length ? (
+        {this.props.articles.length ? (
            <ul>
-             {this.props.savedArticles.map(article => (
+             {this.props.articles.map(article => (
                <>
                 <li key={article.pubId}>
                   {article.title}
@@ -19,7 +17,7 @@ class Articles extends Component {
              ))}
            </ul>
         ) : (
-           <h3>No Results to Display</h3>
+           null
         )}   
       </>
     )
