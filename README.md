@@ -9,9 +9,11 @@ _by Armando Pensado_
 
 The application helps the user searching for information at NASA breaking news RSS (https://www.nasa.gov/rss/dyn/breaking_news.rss) and presents articles to the user, giving the capability to store in the database articles that are considered interesting.
 
-The application may seem similar to a previous one I created ( News Mongo Scraper: https://github.com/pensadotech/NewsMongoScraper ), but this application brings all this functionality into a true MERN application (Single page application).
+The application may seem similar to a previous one I created ( News Mongo Scraper: https://github.com/pensadotech/NewsMongoScraper ), but this application brings all its functionality into a true MERN application (Single page application with React).
 
-This is an exercise that embodies a MERN application. It uses **Mongo DB**, **Express**, **React**, and **Node JS**. However, it also uses **mongoose (ODM)**, **axios**, and **cheerio** libraries.
+This is an exercise that embodies a MERN application. It uses **Mongo DB**, **Express**, **React**, and **Node JS** (MERN). However, it also uses **mongoose (ODM)**, **axios**, and **cheerio** libraries.
+
+* ref: https://www.mongodb.com/blog/post/the-modern-application-stack-part-1-introducing-the-mean-stack
 
 The application layout is depicted below and a running version of the applicaiton can be found at: https://calm-oasis-74689.herokuapp.com/
 
@@ -20,7 +22,10 @@ The application layout is depicted below and a running version of the applicaito
 
 ## How does it works
 
-The single page application offers two views: a) the home view is to visualize any stored articles, and b) the scrape view is to retrieve news from NASA.
+The single page application offers two views: 
+
+* the home view is to visualize any stored articles, and 
+* the scrape view is to retrieve news from NASA.
 
 The scrape view is where the user can retrieve articles and can save them into the DB for later use.  The home view allows the user to see all stored articles and delete the ones that are no longer used. The user can delete one article at a time, or all of them with a click of a button.
 
