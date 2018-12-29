@@ -101,3 +101,9 @@ This is a project for my personal learning process.
 * React Organization: https://reactjs.org/
 
 
+## Buillding a MERN application
+
+To understand how this MERN application was put together, please reference the following article in GitHub.
+
+https://github.com/pensadotech/MERN_BlankApp
+
