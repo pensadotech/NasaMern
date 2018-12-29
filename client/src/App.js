@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom"
 // components
 import Header from './components/Header'
 import NavbarArticle from './components/NavbarArticle'
 import NavbarNewArticle from './components/NavbarNewArticle'
 import Articles from './pages/Articles'
 import NewArticles from './pages/NewArticles'
-
 // API bridge fro express routes
 import API from './utils/API'
 // Style
