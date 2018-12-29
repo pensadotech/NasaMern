@@ -8,7 +8,7 @@ const newsRoutes = require("./nasaNewsRoutes");
 
 // Matches with "/api/articles"
 router.use("/articles", articleRoutes)
-// delete all articles
+// delete all articles "/api/deleteallarticles"
 router.use("/deleteallarticles", specialRoutes)
 // Matches with "/api/scrapArtilces"
 router.use("/scrapArtilces", newsRoutes)
